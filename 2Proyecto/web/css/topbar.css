@@ -60,3 +60,9 @@ and open the template in the editor.
   color: #24ac24;
   border: solid green .5px;
 }
+
+#banner {
+    width: 100%; 
+    height: 250px; 
+    margin: 0;   
+}

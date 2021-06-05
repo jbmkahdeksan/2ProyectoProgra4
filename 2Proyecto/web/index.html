@@ -6,32 +6,89 @@ and open the template in the editor.
 -->
 <html>
     <head>
-        <title>Cine</title>
+        <title>Cine du Solei</title>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <link href="css/default.css" rel="stylesheet" type="text/css"/>
-        <link href="css/topbar.css" rel="stylesheet" type="text/css"/>
         <link href="css/modal.css" rel="stylesheet" type="text/css"/>
-        <script src="scripts/modal_contact.js" type="text/javascript"></script>
+        <link href="css/topbar.css" rel="stylesheet" type="text/css"/>
+        <script src="scripts/modal.js" type="text/javascript"></script>
+        <link href="css/layout.css" rel="stylesheet" type="text/css"/>
     </head>
     <header>
         <div class="topnav">
-            <a href="index.html">Home</a>
-            <a id="trg_contact">Contact us</a>
-            
-            <div id="mdl_contact" class="modal">
-                <div class="modal-content">
+            <a href="index.html">Inicio</a>
+
+            <a class="trigger">Contáctenos</a>
+            <div id="modal_contact" class="modal">
+                <form class="modal-content"> 
                     <span class="close">&times;</span>
-                    <p>Puede contactarnos al 4090-0904</p>
-                </div>  
+                    <div class="container">
+                        <h1>Contáctenos</h1>
+                        <label for="fname"><b>Nombre</b></label>
+                        <input type="text" id="fname" name="firstname" placeholder="Escriba su nombre...">
+                        <label for="lname"><b>Apellidos</b></label>
+                        <input type="text" id="lname" name="lastname" placeholder="Escriba sus apellidos...">
+                        <label for="subject"><b>Asunto</b></label>
+                        <textarea id="subject" name="subject" placeholder="Escribe algo..." style="height:200px"></textarea>
+                        <button type="submit">Enviar</button>
+                    </div>
+                </form>
             </div>
-            
-            <a onclick="#">Register</a>
-            <a onclick="#">Login</a>
+
+            <a class="trigger">Registrarse</a>
+            <div id="modal_register" class="modal">                
+                <form class="modal-content"> 
+                    <span class="close">&times;</span>
+                    <div class="container">
+                        <h1>Registrarse</h1>
+                        <label for="uname"><b>Cédula</b></label>
+                        <input type="text" placeholder="Digite su cédula" name="r_id" required>
+
+                        <label for="uname"><b>Nombre</b></label>
+                        <input type="text" placeholder="Digite su nombre" name="r_name" required>
+
+                        <label for="uname"><b>Apellidos</b></label>
+                        <input type="text" placeholder="Digite sus apellidos" name="r_lastname" required>
+
+                        <label for="uname"><b>Teléfono</b></label>
+                        <input type="text" placeholder="Digite sus número de teléfono" name="r_telephone" required>
+
+                        <label for="uname"><b>Tarjeta de crédito</b></label>
+                        <input type="text" placeholder="Digite los números de su tarjeta bancaria" name="r_card" required>
+
+                        <label for="uname"><b>Contraseña</b></label>
+                        <input type="password" placeholder="Digite su contraseña de 4 caracteres" name="r_password" required>
+
+                        <label for="uname"><b>Confirmar contraseña</b></label>
+                        <input type="password" placeholder="Digite su contraseña nuevamente" name="r_confirm" required>
+                        <button type="submit">Registrarse</button>
+                    </div>
+
+                </form>
+            </div>
+
+            <a class="trigger">Iniciar sesión</a> 
+            <div id="modal_login" class="modal">
+                <form class="modal-content"> 
+                    <span class="close">&times;</span>
+                    <div class="container">
+                        <h1>Iniciar sesión</h1>
+                        <label for="uname"><b>Cédula</b></label>
+                        <input type="text" placeholder="Digite su cédula" name="uname" required>
+
+                        <label for="psw"><b>Coontraseña</b></label>
+                        <input type="password" placeholder="Digite su contraseña" name="psw" required>
+
+                        <button type="submit">Iniciar sesión</button>
+                    </div>
+                </form>
+            </div>
+
+
             <div class="search-container">
                 <form action="#">
-                    <input type="text" placeholder="Search..." name="search">
-                    <button type="submit">Search movie</button>
+                    <input type="text" placeholder="Buscar..." name="search">
+                    <button type="submit">Buscar película</button>
                 </form>
             </div>
         </div>
@@ -39,9 +96,114 @@ and open the template in the editor.
         <div>
             <img id="banner" src="images/banner.png"/>
         </div>
-
-
     </header>
     <body>
+        <div>
+            <a class='trigger'>Asientos</a> 
+            <div id="modal_seats" class="modal">
+                <div class="layout-content"> 
+                    <span class="close">&times;</span>  
+                    <div class="hall_layout">
+                        <h3>Asientos</h3>
+                        <div>
+                            <ul class="showcase">
+                                <li>
+                                    <div class="seat"></div>
+                                    <small>Disponible</small>
+                                </li>
+                                <li>
+                                    <div class="seat selected"></div>
+                                    <small>Elegido</small>
+                                </li>
+                                <li>
+                                    <div class="seat occupied"></div>
+                                    <small>Ocupado</small>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="screen" style="text-align:center;"><p style="color:white; padding-top:30px;">PANTALLA<p></div>
+                        <div class='layout'>
+                            <div class="row">
+                                <div class="tag">1</div>
+                                <div class="seat"></div>
+                                <div class="seat"></div>
+                                <div class="seat"></div>
+                                <div class="seat"></div>
+                                <div class="seat"></div>
+                                <div class="seat"></div>
+                                <div class="seat"></div>
+                                <div class="seat"></div>
+                            </div>
+                            <div class="row">
+                                <div class="tag">2</div>
+                                <div class="seat"></div>
+                                <div class="seat"></div>
+                                <div class="seat"></div>
+                                <div class="seat"></div>
+                                <div class="seat"></div>
+                                <div class="seat"></div>
+                                <div class="seat"></div>
+                                <div class="seat"></div>
+                            </div>
+                            <div class="row">
+                                <div class="tag">3</div>
+                                <div class="seat"></div>
+                                <div class="seat"></div>
+                                <div class="seat"></div>
+                                <div class="seat"></div>
+                                <div class="seat"></div>
+                                <div class="seat"></div>
+                                <div class="seat"></div>
+                                <div class="seat"></div>
+                            </div>
+                            <div class="row">
+                                <div class="tag">4</div>
+                                <div class="seat"></div>
+                                <div class="seat"></div>
+                                <div class="seat"></div>
+                                <div class="seat"></div>
+                                <div class="seat"></div>
+                                <div class="seat"></div>
+                                <div class="seat"></div>
+                                <div class="seat"></div>
+                            </div>
+                            <div class="row">
+                                <div class="tag">5</div>
+                                <div class="seat"></div>
+                                <div class="seat"></div>
+                                <div class="seat"></div>
+                                <div class="seat"></div>
+                                <div class="seat"></div>
+                                <div class="seat"></div>
+                                <div class="seat"></div>
+                                <div class="seat"></div>
+                            </div>
+                            <div class="row">
+                                <div class="tag">6</div>
+                                <div class="seat"></div>
+                                <div class="seat"></div>
+                                <div class="seat"></div>
+                                <div class="seat"></div>
+                                <div class="seat"></div>
+                                <div class="seat"></div>
+                                <div class="seat"></div>
+                                <div class="seat"></div>
+                            </div>
+                            <div class="row-tag">
+                                <div class="tag">A</div>
+                                <div class="tag">B</div>
+                                <div class="tag">C</div>
+                                <div class="tag">D</div>
+                                <div class="tag">E</div>
+                                <div class="tag">F</div>
+                                <div class="tag">G</div>
+                                <div class="tag">H</div>                                
+                            </div>
+                        </div>
+                    </div>
+                    <button type="submit" id='comprar'>Comprar</button>
+                </div>
+            </div>
+        </div>
     </body>
 </html>
