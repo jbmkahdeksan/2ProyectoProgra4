@@ -1,0 +1,130 @@
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/* 
+    Created on : Jun 4, 2021, 7:12:44 PM
+    Author     : Joaquin
+*/
+
+
+.layout-content {
+  background-color: #fefefe;
+  margin: 0.5% auto 12% auto; 
+  border: 1px solid #888;
+  width: 60%; 
+  height: 80%;
+  perspective: 1000px;
+  margin-bottom: 30px;
+  align-items: center;  
+  border: 1px solid blue;
+}
+
+#comprar {
+    margin: 40px auto;
+    
+    width: 25%;
+}
+
+.hall_layout{
+    margin: 40px auto;
+    width: 500px;
+    border: 2px solid #777; 
+    bottom: 30px;
+}
+
+.hall_layout h3{
+    text-align: center;
+    margin: auto;
+}
+
+.showcase {
+    background-color: rgba(0,0,0,0.1);
+    padding: 5px 10px;
+    border-radius: 5px;
+    color: #777;
+    list-style-type: none;
+    display: flex;
+    justify-content: space-between;
+}
+
+.showcase li {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 10px;
+}
+
+.showcase li small {
+    margin-left: 2px;
+}
+
+
+.screen {
+    background-color: #04090d;
+    height: 70px;
+    width: 45%;
+    transform: rotateX(-45deg);
+    border-bottom-left-radius: -14.5px;
+    border-bottom-right-radius: -14.5px;    
+    box-shadow: 0 3px 10px rgba(255, 255, 255, 0.7);    
+    margin: auto;
+}
+
+.layout {
+    width: 40%;
+    margin: 15px auto auto auto;
+}
+
+.row {
+    display: flex;    
+    margin: auto;
+    align-content: center;
+    align-items: center;
+    width: 100%;
+}
+
+.row-tag {
+    display: flex;    
+    margin-left: 25px;
+    align-content: center;
+    align-items: center;
+    width: 100%;
+}
+
+
+.seat {
+    background-color: #660000;
+    height: 17px;
+    width: 17px;
+    margin: 3px auto;
+    border-top-left-radius: 100%;
+    border-top-right-radius: 100%;
+    border: 0.5px solid black;
+}
+
+.seat:hover{
+    background-color: #ffa2a2;    
+    border: 1.5px solid black;
+}
+
+.seat.selected {
+    background-color: aqua;
+}
+
+.seat.occupied {
+    background-color:crimson;
+}
+
+.tag {
+    height: 17px;
+    width: 17px;
+    margin: 3px 2.6px;
+    font-size: 15px;
+}
+
+
+
+
+
