@@ -11,19 +11,27 @@ and open the template in the editor.
 
 .layout-content {
   background-color: #fefefe;
-  margin: 0.5% auto 12% auto; 
-  border: 1px solid #888;
-  width: 60%; 
-  height: 80%;
+  margin: 0 auto 2px auto; 
+  width: 50%; 
+  height: 100%;
   perspective: 1000px;
-  margin-bottom: 30px;
-  align-items: center;  
-  border: 1px solid blue;
+}
+
+.layout-content-mini{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 0px;
+  padding: 2px 16px;
+}
+
+.layout-content-mini h3{
+    padding: auto;
+    text-align: center;
 }
 
 #comprar {
-    margin: 40px auto;
-    
+    margin: auto;    
     width: 25%;
 }
 
@@ -34,9 +42,10 @@ and open the template in the editor.
     bottom: 30px;
 }
 
-.hall_layout h3{
+.hall_layout h4{
     text-align: center;
     margin: auto;
+    padding-top: 10px;
 }
 
 .showcase {

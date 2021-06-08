@@ -101,10 +101,25 @@ and open the template in the editor.
         <div>
             <a class='trigger'>Asientos</a> 
             <div id="modal_seats" class="modal">
-                <div class="layout-content"> 
-                    <span class="close">&times;</span>  
+                <form class="layout-content">
+                    <div class=""
+                         style="border-bottom: 1px solid gray;
+                         display: flex;
+                         align-content: center;">
+                        <div style="width: 30%;
+                             margin:0 0 0 4px;
+                             text-align: center;
+                             align-content: center;
+                             width: 100%;" class="movie-title">
+                            <h3>Movie title</h3>
+                            <h5>Date, Time - Hall</h5>
+                        </div>
+                        <span class="close"
+                              style="margin: 0 4px 0 0;">&times;</span>
+                    </div>                 
+
                     <div class="hall_layout">
-                        <h3>Asientos</h3>
+                        <h4>Asientos</h4>
                         <div>
                             <ul class="showcase">
                                 <li>
@@ -201,8 +216,10 @@ and open the template in the editor.
                             </div>
                         </div>
                     </div>
-                    <button type="submit" id='comprar'>Comprar</button>
-                </div>
+                    <div class="layout-content-mini">
+                        <button type="submit" id='comprar'>Comprar</button>
+                    </div>                    
+                </form>
             </div>
         </div>
     </body>
