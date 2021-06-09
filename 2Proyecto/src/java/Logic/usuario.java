@@ -28,6 +28,9 @@ public class usuario {
     public usuario() {
 
     }
+    public void clearClave(){
+        this.clave = "";
+    }
 
     public String getId_usuario() {
         return id_usuario;

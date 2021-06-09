@@ -19,7 +19,7 @@ import java.util.List;
  * @author ksand
  */
 public class funcionDao {
-    public void create(funcion o) throws Exception {
+    public funcion create(funcion o) throws Exception {
         String sql = "insert into funcion (sala_cinema_id, sala_numero, fecha, pelicula_id) "
                 + "values(?,?,?,?)";
         PreparedStatement stm = Database.instance().prepareStatement(sql);
@@ -31,6 +31,7 @@ public class funcionDao {
         if (count == 0) {
             throw new Exception("Funcion ya existe");
         }
+        return o;
     }
 
     public funcion read(int sala_cinema_id, int sala_numero, Date fecha) throws Exception{

@@ -17,7 +17,7 @@ import java.util.List;
  * @author ksand
  */
 public class peliculaDao {
-    public void create(pelicula o) throws Exception {
+    public pelicula create(pelicula o) throws Exception {
         String sql = "insert into pelicula (id_pelicula, titulo, poster_path, movie_data) "
                 + "values(?,?,?, ?)";
         PreparedStatement stm = Database.instance().prepareStatement(sql);
@@ -29,6 +29,7 @@ public class peliculaDao {
         if (count == 0) {
             throw new Exception("Pelicula ya existe");
         }
+         return o;
     }
 
     public pelicula read(String id_pelicula) throws Exception {

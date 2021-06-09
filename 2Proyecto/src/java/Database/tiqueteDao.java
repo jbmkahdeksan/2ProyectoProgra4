@@ -18,7 +18,7 @@ import java.util.List;
  * @author ksand
  */
 public class tiqueteDao {
-    public void create(tiquete o) throws Exception {
+    public tiquete create(tiquete o) throws Exception {
         String sql = "insert into tiquete (id_tiquete, factura_seq, asiento_funcion_sala_cinema_id, funcion_sala_numero, asiento_funcion_fecha, asiento_funcion_fila, asiento_funcion_posicion, monto) "
                 + "values(?,?,?,?,?,?,?,?)";
         
@@ -35,6 +35,7 @@ public class tiqueteDao {
         if (count == 0) {
             throw new Exception("Tiquete ya existe");
         }
+        return o;
     }
 
     public tiquete read(int id_tiquete) throws Exception {

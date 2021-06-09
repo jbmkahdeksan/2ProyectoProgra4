@@ -17,7 +17,7 @@ import java.util.List;
  * @author ksand
  */
 public class salaDao {
-    public void create(sala o) throws Exception {
+    public sala create(sala o) throws Exception {
         String sql = "insert into sala (cinema_id, numero, capacidad) "
                 + "values(?,?,?)";
         PreparedStatement stm = Database.instance().prepareStatement(sql);
@@ -28,6 +28,7 @@ public class salaDao {
         if (count == 0) {
             throw new Exception("Sala ya existe");
         }
+        return o;
     }
 
     public sala read(int cinema_id, int numero) throws Exception {
