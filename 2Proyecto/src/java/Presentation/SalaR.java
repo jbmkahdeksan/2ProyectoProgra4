@@ -6,7 +6,7 @@
 package Presentation;
 
 import Logic.Service;
-import Logic.usuario;
+import Logic.sala;
 import java.util.List;
 import javax.websocket.server.PathParam;
 import javax.ws.rs.Consumes;
@@ -24,46 +24,26 @@ import javax.ws.rs.core.MediaType;
  *
  * @author ksand
  */
-@Path("/usuarios")
-public class usuariosR {
-
-    
+@Path("/salas")
+public class SalaR {
     @GET
-    @Path("{cedula}")
+    @Path("{id}")
     @Produces({MediaType.APPLICATION_JSON})
-    public usuario get(@PathParam("cedula") String cedula) {
+    public sala get(@PathParam("cinema_id") int cinema_id,@PathParam("id") int id) {
         try {
-            return Service.instance().readuserID(cedula);
+            return Service.instance().readbyidS(cinema_id, id);
         } catch (Exception ex) {
             throw new NotFoundException(); 
         }
     }
     
     
-    @POST
-    @Path("{ingresar}")
-    @Consumes(MediaType.APPLICATION_JSON) 
-    @Produces({MediaType.APPLICATION_JSON})
-    public usuario login (usuario u) {
-        try {
-            
-
-            usuario new_user = Service.instance().readuserID(u.getId_usuario());
-            new_user.clearClave();
-            return new_user;
-            
-        } catch (Exception ex) {
-            throw new NotFoundException(); 
-        }
-    }
     
     @POST
-    @Path("{registrarse}")
     @Consumes(MediaType.APPLICATION_JSON) 
-    public void addUser(usuario p) {  
+    public void addSala(sala s) {  
         try {
-            Service.instance().crearUsuario(p);
-
+            Service.instance().crearSala(s);
         } catch (Exception ex) {
             throw new NotAcceptableException(); 
         }

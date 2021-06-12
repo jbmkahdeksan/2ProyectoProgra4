@@ -6,7 +6,7 @@
 package Presentation;
 
 import Logic.Service;
-import Logic.usuario;
+import Logic.pelicula;
 import java.util.List;
 import javax.websocket.server.PathParam;
 import javax.ws.rs.Consumes;
@@ -24,45 +24,32 @@ import javax.ws.rs.core.MediaType;
  *
  * @author ksand
  */
-@Path("/usuarios")
-public class usuariosR {
-
-    
+@Path("/peliculas")
+public class peliculaR {
     @GET
-    @Path("{cedula}")
+    @Path("{id}")
     @Produces({MediaType.APPLICATION_JSON})
-    public usuario get(@PathParam("cedula") String cedula) {
+    public pelicula get(@PathParam("id") String titulo) {
         try {
-            return Service.instance().readuserID(cedula);
+            return Service.instance().readPelicula(titulo);
         } catch (Exception ex) {
             throw new NotFoundException(); 
         }
     }
     
-    
-    @POST
-    @Path("{ingresar}")
-    @Consumes(MediaType.APPLICATION_JSON) 
+   
+    @GET
     @Produces({MediaType.APPLICATION_JSON})
-    public usuario login (usuario u) {
-        try {
-            
-
-            usuario new_user = Service.instance().readuserID(u.getId_usuario());
-            new_user.clearClave();
-            return new_user;
-            
-        } catch (Exception ex) {
-            throw new NotFoundException(); 
-        }
-    }
+    public List<pelicula> search(@DefaultValue("") @QueryParam("titulo") String titulo) throws Exception { 
+        return Service.instance().peliculasSearch(titulo);
+    } 
     
     @POST
-    @Path("{registrarse}")
+    @Path("{agregarPelicula}")
     @Consumes(MediaType.APPLICATION_JSON) 
-    public void addUser(usuario p) {  
+    public void addPelicula(pelicula p) {  
         try {
-            Service.instance().crearUsuario(p);
+            Service.instance().crearPelicula(p);
 
         } catch (Exception ex) {
             throw new NotAcceptableException(); 
