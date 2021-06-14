@@ -44,6 +44,18 @@ public class peliculaR {
         return Service.instance().peliculasSearch(titulo);
     } 
     
+    @GET
+    @Produces({MediaType.APPLICATION_JSON})
+    public List<pelicula> getpeliculas() throws Exception { 
+        return Service.instance().TodasPeliculas();
+    } 
+    
+    @GET
+    @Produces({MediaType.APPLICATION_JSON})
+    public List<pelicula> getCartelera() throws Exception { 
+        return Service.instance().CarteleraPeliculas();
+    } 
+    
     @POST
     @Path("{agregarPelicula}")
     @Consumes(MediaType.APPLICATION_JSON) 

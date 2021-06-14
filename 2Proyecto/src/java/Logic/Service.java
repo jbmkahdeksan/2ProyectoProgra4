@@ -102,6 +102,10 @@ public class Service {
         return peliculasDAO.read(id);
     }
      
+     public cinema readCinema(int id) throws Exception{
+        return cinemaDAO.read(id);
+    }
+     
     public pelicula crearPelicula(pelicula p){
         pelicula result = null;
         
@@ -147,6 +151,13 @@ public class Service {
         }
         return result;
     }
+     public List<sala> TodasSalas() {
+        try {
+            return salasDAO.findAll();
+        } catch (Exception e) {
+            return null;
+        }
+       }
     
     /*Funcion*/
 

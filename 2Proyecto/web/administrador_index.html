@@ -18,29 +18,29 @@ and open the template in the editor.
             <a href="index.html">Inicio</a>
     </header>
 
-    
+
     <body>
         <div>
-        <button class="tablink"  onclick="openPage('Inicio', this, '#999999')" id="defaultOpen">Inicio</button>
-        <button class="tablink" onclick="openPage('Sala', this, '#999999')">Nueva Sala</button>
-        <button class="tablink" onclick="openPage('Pelicula', this, '#999999')" >Nueva Pelicula</button>
-        <button class="tablink" onclick="openPage('Proyeccion', this, '#999999')">Nueva Proyeccion</button>
-        <button class="tablink" onclick="openPage('Tiquete', this, '#999999')">Imprimir Tiquetes</button>
-        
-        <div>
-            <h3>Administrador</h3>
-            
-        </div>
-        
-        <div id="Inicio" class="tabcontent">
-            
-            <p>Selecione que accion desea realizar.</p>
-        </div>
+            <button class="tablink"  onclick="openPage('Inicio', this, '#999999')" id="defaultOpen">Inicio</button>
+            <button class="tablink" onclick="openPage('Sala', this, '#999999')">Nueva Sala</button>
+            <button class="tablink" onclick="openPage('Pelicula', this, '#999999')" >Nueva Pelicula</button>
+            <button class="tablink" onclick="openPage('Proyeccion', this, '#999999')">Nueva Proyección</button>
+            <button class="tablink" onclick="openPage('Tiquete', this, '#999999')">Imprimir Tiquetes</button>
 
-        <div id="Sala" class="tabcontent">
-            <h3>Nueva Sala</h3>
-            <section>
-                <form id="newsala" name="nuevasala">
+            <div>
+                <h3>Administrador</h3>
+
+            </div>
+
+            <div id="Inicio" class="tabcontent">
+
+                <p>Selecione que accion desea realizar.</p>
+            </div>
+
+            <div id="Sala" class="tabcontent">
+                <h3>Nueva Sala</h3>
+                <section>
+                    <form id="newsala" name="nuevasala">
                         <table id="formulariosala" class="tablaFormulario">
                             <tr>
                                 <td class="c1" style="font-weight: bold;">Cine</td>
@@ -59,7 +59,7 @@ and open the template in the editor.
                                 <td>
                                     <input type="number" id="cantidad" name="cantidadsala" />
                                 </td>
-                                
+
                             </tr><tr>
                                 <td colspan="2" class="f_btn">
                                     <button type="button" onclick="agregarSala();">Agregar</button>
@@ -68,16 +68,50 @@ and open the template in the editor.
                         </table>
                     </form>                  
                 </section>
-        </div>
+            </div>
 
-        <div id="Pelicula" class="tabcontent">
-            <h3>Nueva Pelicula</h3>
-            <p>Some news this fine day!</p> 
-        </div>
+            <div id="Pelicula" class="tabcontent">
+                <h3>Nueva Pelicula</h3>
+                <section>
+                    <form id="newpelicula" name="nuevapelicula">
+                        <table id="formulariopelicula" class="tablaFormulario">
+                            <tr>
+                                <td class="c1" style="font-weight: bold;">ID:</td>
+                                <td>
+                                    <input type="text" id="id" name="id"
+                                           />
+                                </td>
+                            </tr><tr>
+                                <td class="c1">Titulo </td>
+                                <td>
+                                    <input type="text" id="titulo" name="peli_titulo"
+                                           />
+                                </td>
+                            </tr><tr>
+                                <td class="c1" style="font-weight: bold;">Ruta de imagen: </td>
+                                <td>
+                                    <input type="text" id="path" name="peli_path"
+                                           />
 
-        <div id="Proyeccion" class="tabcontent">
-            <h3>Nueva Proyeccion</h3>
-            <section>
+                                </td>
+                            </tr><tr>
+                                <td class="c1">Descripcion de pelicula: </td>
+                                <td>
+                                    <textarea rows = "5" cols = "60" name = "description">
+                                    </textarea><br>
+                                </td><tr>
+                                <td colspan="2" class="f_btn">
+                                    <button type="button" onclick="agregarProyeccion();">Agregar</button>
+                                </td>
+                            </tr>
+                        </table>
+                    </form>                  
+                </section>
+            </div>
+
+            <div id="Proyeccion" class="tabcontent">
+                <h3>Nueva Proyeccion</h3>
+                <section>
                     <form id="newproyeccion" name="nuevaproyeccion">
                         <table id="formularioproyeccion" class="tablaFormulario">
                             <tr>
@@ -108,12 +142,31 @@ and open the template in the editor.
                         </table>
                     </form>                  
                 </section>
-        </div>
+            </div>
 
-        <div id="Tiquete" class="tabcontent">
-            <h3>Imprimir Tiquetes</h3>
-            <p>Who we are and what we do.</p>
+            <div id="Tiquete" class="tabcontent">
+                <h3>Imprimir Tiquetes</h3>
+                <p> Seleccione que tiquete desea imprimir.</p>
+                <section>
+                    <form id="tiquetes" name="imprimirtiquetes">
+                        <table id="formulariotiquetes" class="tablaFormulario">
+                            <tr>
+                                <td class="c1" style="font-weight: bold;">Tiquete:</td>
+                                <td>
+                                    <select id="menuSalas" name="Salas"
+                                            onchange="seleccionarTiquetes();">
+                                    </select>
+                                </td>
+                            </tr><tr>
+                                <td colspan="2" class="f_btn">
+                                    <button type="button" onclick="imprimirTiquetes();">Imprimir</button>
+                                </td>
+                            </tr>
+                        </table>
+                    </form>                  
+                </section>
+
+            </div>
         </div>
-    </div>
     </body>
 </html>

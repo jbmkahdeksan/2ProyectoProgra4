@@ -6,15 +6,13 @@
 package Presentation;
 
 import Logic.Service;
+import Logic.funcion;
 import Logic.pelicula;
-import Logic.sala;
 import java.util.List;
-import javax.websocket.server.PathParam;
 import javax.ws.rs.Consumes;
 import javax.ws.rs.DefaultValue;
 import javax.ws.rs.GET;
 import javax.ws.rs.NotAcceptableException;
-import javax.ws.rs.NotFoundException;
 import javax.ws.rs.POST;
 import javax.ws.rs.Path;
 import javax.ws.rs.Produces;
@@ -25,31 +23,20 @@ import javax.ws.rs.core.MediaType;
  *
  * @author ksand
  */
-@Path("/salas")
-public class SalaR {
+@Path("/funciones")
+public class FuncionR {
     @GET
-    @Path("{id}")
     @Produces({MediaType.APPLICATION_JSON})
-    public sala get(@PathParam("cinema_id") int cinema_id,@PathParam("id") int id) {
-        try {
-            return Service.instance().readbyidS(cinema_id, id);
-        } catch (Exception ex) {
-            throw new NotFoundException(); 
-        }
-    }
-    
-    
-     @GET
-    @Produces({MediaType.APPLICATION_JSON})
-    public List<sala> getSalas() throws Exception { 
-        return Service.instance().TodasSalas();
+    public List<funcion> search(@DefaultValue("") @QueryParam("titulo") String titulo) throws Exception { 
+        return Service.instance().funcionSearchPelicula(titulo);
     } 
-    
     @POST
+    @Path("{agregarFuncion}")
     @Consumes(MediaType.APPLICATION_JSON) 
-    public void addSala(sala s) {  
+    public void addFuncion(funcion f) {  
         try {
-            Service.instance().crearSala(s);
+            Service.instance().crearFuncion(f);
+
         } catch (Exception ex) {
             throw new NotAcceptableException(); 
         }
